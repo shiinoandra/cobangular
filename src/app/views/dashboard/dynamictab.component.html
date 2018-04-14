@@ -1,0 +1,20 @@
+<h3> Tambah User Baru </h3>
+
+<div>
+  <tabset>
+    <tab heading ="New User 1">User 1</tab>
+    <tab *ngFor="let t of tabs"
+        [active] = "t.active"
+        (select) = "t.active = true"
+        (deselect) = "t.active = false"
+        [disabled]="t.disabled"
+        [removable]="t.removable"
+        (removed)="removeTabHandler(t)"
+        [customClass]="t.customClass"
+        >
+        <ng-template tabHeading><a (click)="addNewTab();" [class]="t.icon"></a><span (click)="addNewTab();">{{t.title}}</span></ng-template>
+        {{t.content}}
+    </tab>
+
+  </tabset>
+</div>
